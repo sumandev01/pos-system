@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - POS System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-shopping-cart"></i> POS System
+      </a>
+      <div class="ms-auto">
+        <span class="text-white me-3">স্বাগতম, Admin</span>
+        <a href="login.html" class="btn btn-outline-light btn-sm">লগআউট</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-header p-3 border-bottom border-secondary">
+        <h5 class="mb-0">মেনু</h5>
+      </div>
+      <ul class="nav flex-column mt-2">
+        <li class="nav-item">
+          <a class="nav-link active" href="dashboard.html">
+            <i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sales.html">
+            <i class="fas fa-cash-register"></i> বিক্রয়/POS
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sales-history.html">
+            <i class="fas fa-history"></i> বিক্রয় ইতিহাস
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">পণ্য</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">
+            <i class="fas fa-boxes"></i> পণ্য তালিকা
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">
+            <i class="fas fa-list"></i> ক্যাটাগরি
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">গ্রাহক</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="customers.html">
+            <i class="fas fa-users"></i> গ্রাহক তালিকা
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">রিপোর্ট</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reports.html">
+            <i class="fas fa-chart-pie"></i> রিপোর্ট
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">ব্যবস্থাপনা</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="users.html">
+            <i class="fas fa-user-tie"></i> ব্যবহারকারী
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="settings.html">
+            <i class="fas fa-cog"></i> সেটিংস
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1">
+      <div class="container-fluid">
+        <h1 class="mb-4">স্বাগতম, Admin!</h1>
+
+        <!-- Stats Row -->
+        <div class="row mb-4">
+          <div class="col-md-3">
+            <div class="stat-card success">
+              <h6>আজকের বিক্রয়</h6>
+              <h3>৳ 45,250</h3>
+              <small><i class="fas fa-arrow-up"></i> 12% বৃদ্ধি</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card">
+              <h6>মোট পণ্য</h6>
+              <h3>1,245</h3>
+              <small><i class="fas fa-box"></i> ইনভেন্টরিতে</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card warning">
+              <h6>মোট গ্রাহক</h6>
+              <h3>342</h3>
+              <small><i class="fas fa-user"></i> নিবন্ধিত</small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-card danger">
+              <h6>কম স্টক</h6>
+              <h3>23</h3>
+              <small><i class="fas fa-exclamation"></i> মনোযোগ প্রয়োজন</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">সাপ্তাহিক বিক্রয়</h5>
+              </div>
+              <div class="card-body">
+                <div class="chart-container">
+                  <canvas id="weeklyChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">শীর্ষ পণ্য</h5>
+              </div>
+              <div class="card-body">
+                <div class="chart-container">
+                  <canvas id="topProductsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">সাম্প্রতিক লেনদেন</h5>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead>
+                    <tr>
+                      <th>তারিখ</th>
+                      <th>সময়</th>
+                      <th>গ্রাহক</th>
+                      <th>পণ্য</th>
+                      <th>পরিমাণ</th>
+                      <th>টাকা</th>
+                      <th>অ্যাকশন</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>২৮/৫/২০২৬</td>
+                      <td>১০:৩০ এএম</td>
+                      <td>মোহাম্মদ করিম</td>
+                      <td>চাল - ১০ কেজি</td>
+                      <td>2</td>
+                      <td>৳ 3,200</td>
+                      <td><a href="invoice.html" class="btn btn-sm btn-info">চালান</a></td>
+                    </tr>
+                    <tr>
+                      <td>২৮/৫/২০२६</td>
+                      <td>১১:১৫ এএম</td>
+                      <td>ফাতেমা বেগম</td>
+                      <td>ডাল - ৫ কেজি</td>
+                      <td>1</td>
+                      <td>৳ 1,800</td>
+                      <td><a href="invoice.html" class="btn btn-sm btn-info">চালান</a></td>
+                    </tr>
+                    <tr>
+                      <td>२८/५/२०२६</td>
+                      <td>०१:४५ पिएम</td>
+                      <td>আহমেদ আলী</td>
+                      <td>ডিম - ৩০ পিস</td>
+                      <td>3</td>
+                      <td>৳ 4,500</td>
+                      <td><a href="invoice.html" class="btn btn-sm btn-info">চালান</a></td>
+                    </tr>
+                    <tr>
+                      <td>२८/५/२०२६</td>
+                      <td>०२:२० पिएम</td>
+                      <td>রহিম খান</td>
+                      <td>চিনি - ৫ কেজি</td>
+                      <td>1</td>
+                      <td>৳ 1,250</td>
+                      <td><a href="invoice.html" class="btn btn-sm btn-info">চালান</a></td>
+                    </tr>
+                    <tr>
+                      <td>२८/५/२०२६</td>
+                      <td>०३:०० पिएम</td>
+                      <td>নুরজাহান আক্তার</td>
+                      <td>লবণ - ২ কেজি</td>
+                      <td>2</td>
+                      <td>৳ 800</td>
+                      <td><a href="invoice.html" class="btn btn-sm btn-info">চালান</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="/js/script.js"></script>
+  <script>
+    // Weekly Sales Chart
+    const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+    new Chart(weeklyCtx, {
+      type: 'line',
+      data: {
+        labels: ['সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার', 'রবিবার'],
+        datasets: [{
+          label: 'বিক্রয়',
+          data: [12000, 19000, 3000, 5000, 20000, 30000, 35000],
+          borderColor: '#3498db',
+          backgroundColor: 'rgba(52, 152, 219, 0.1)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Top Products Chart
+    const topCtx = document.getElementById('topProductsChart').getContext('2d');
+    new Chart(topCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['চাল', 'ডাল', 'ডিম', 'তেল', 'চিনি'],
+        datasets: [{
+          data: [30, 25, 20, 15, 10],
+          backgroundColor: [
+            '#3498db',
+            '#27ae60',
+            '#f39c12',
+            '#e74c3c',
+            '#9b59b6'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

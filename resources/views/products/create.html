@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নতুন পণ্য - POS System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-shopping-cart"></i> POS System
+      </a>
+      <div class="ms-auto">
+        <span class="text-white me-3">স্বাগতম, Admin</span>
+        <a href="login.html" class="btn btn-outline-light btn-sm">লগআউট</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-header p-3 border-bottom border-secondary">
+        <h5 class="mb-0">মেনু</h5>
+      </div>
+      <ul class="nav flex-column mt-2">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">
+            <i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sales.html">
+            <i class="fas fa-cash-register"></i> বিক্রয়/POS
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sales-history.html">
+            <i class="fas fa-history"></i> বিক্রয় ইতিহাস
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">পণ্য</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="products.html">
+            <i class="fas fa-boxes"></i> পণ্য তালিকা
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">
+            <i class="fas fa-list"></i> ক্যাটাগরি
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center mb-4">
+          <h1>নতুন পণ্য যোগ করুন</h1>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">পণ্য তথ্য</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="#">
+                  <div class="mb-3">
+                    <label for="product_name" class="form-label">পণ্যের নাম *</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name" required>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="category" class="form-label">ক্যাটাগরি *</label>
+                      <select class="form-select" id="category" name="category" required>
+                        <option value="">-- বেছে নিন --</option>
+                        <option value="grain">শস্য</option>
+                        <option value="dal">ডাল</option>
+                        <option value="oil">তেল</option>
+                        <option value="sugar">চিনি</option>
+                        <option value="other">অন্যান্য</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="sku" class="form-label">SKU কোড</label>
+                      <input type="text" class="form-control" id="sku" name="sku" placeholder="যেমন: RICE001">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="price" class="form-label">মূল্য (৳) *</label>
+                      <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="quantity" class="form-label">প্রাথমিক পরিমাণ *</label>
+                      <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="description" class="form-label">বর্ণনা</label>
+                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="image" class="form-label">ছবি আপলোড করুন</label>
+                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">
+                      <i class="fas fa-save"></i> সংরক্ষণ করুন
+                    </button>
+                    <a href="products.html" class="btn btn-secondary">
+                      <i class="fas fa-times"></i> বাতিল করুন
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">সহায়তা</h5>
+              </div>
+              <div class="card-body">
+                <h6>টিপস:</h6>
+                <ul class="small">
+                  <li>পণ্যের নাম স্পষ্টভাবে লিখুন</li>
+                  <li>সঠিক মূল্য প্রবেশ করুন</li>
+                  <li>প্রাথমিক স্টক পরিমাণ নিশ্চিত করুন</li>
+                  <li>পণ্যের ছবি যোগ করুন (ঐচ্ছিক)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+</html>

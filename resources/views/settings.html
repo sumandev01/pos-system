@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সেটিংস - POS System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-shopping-cart"></i> POS System
+      </a>
+      <div class="ms-auto">
+        <span class="text-white me-3">স্বাগতম, Admin</span>
+        <a href="login.html" class="btn btn-outline-light btn-sm">লগআউট</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-header p-3 border-bottom border-secondary">
+        <h5 class="mb-0">মেনু</h5>
+      </div>
+      <ul class="nav flex-column mt-2">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.html">
+            <i class="fas fa-tachometer-alt"></i> ড্যাশবোর্ড
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <span class="text-muted px-3">ব্যবস্থাপনা</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="settings.html">
+            <i class="fas fa-cog"></i> সেটিংস
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1">
+      <div class="container-fluid">
+        <h1 class="mb-4">সিস্টেম সেটিংস</h1>
+
+        <div class="row">
+          <div class="col-md-8">
+            <!-- Shop Settings -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5 class="mb-0">দোকানের তথ্য</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="#">
+                  <div class="mb-3">
+                    <label for="shop_name" class="form-label">দোকানের নাম *</label>
+                    <input type="text" class="form-control" id="shop_name" name="shop_name" value="আমার দোকান" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="shop_address" class="form-label">ঠিকানা</label>
+                    <textarea class="form-control" id="shop_address" name="shop_address" rows="2">ঢাকা, বাংলাদেশ</textarea>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="shop_phone" class="form-label">ফোন নম্বর</label>
+                      <input type="text" class="form-control" id="shop_phone" name="shop_phone" value="০১৭১২৩৪৫৬৭৮">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="shop_email" class="form-label">ইমেইল</label>
+                      <input type="email" class="form-control" id="shop_email" name="shop_email" value="shop@email.com">
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="logo" class="form-label">লোগো আপলোড করুন</label>
+                    <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
+                  </div>
+
+                  <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> সংরক্ষণ করুন</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Business Settings -->
+            <div class="card mb-4">
+              <div class="card-header">
+                <h5 class="mb-0">ব্যবসায়িক সেটিংস</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="#">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="currency" class="form-label">মুদ্রা</label>
+                      <select class="form-select" id="currency" name="currency">
+                        <option value="BDT">বাংলাদেশী টাকা (৳)</option>
+                        <option value="USD">আমেরিকান ডলার ($)</option>
+                        <option value="INR">ভারতীয় টাকা (₹)</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="tax_rate" class="form-label">ট্যাক্স হার (%)</label>
+                      <input type="number" class="form-control" id="tax_rate" name="tax_rate" value="5" step="0.01">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="date_format" class="form-label">তারিখ ফর্ম্যাট</label>
+                      <select class="form-select" id="date_format" name="date_format">
+                        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                        <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                        <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="timezone" class="form-label">সময় অঞ্চল</label>
+                      <select class="form-select" id="timezone" name="timezone">
+                        <option value="Asia/Dhaka">এশিয়া/ঢাকা</option>
+                        <option value="Asia/Kolkata">এশিয়া/কলকাতা</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> সংরক্ষণ করুন</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Backup -->
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">ডেটা ব্যাকআপ</h5>
+              </div>
+              <div class="card-body">
+                <p class="text-muted">সর্বশেষ ব্যাকআপ: २८/५/२०२६ ०१:३० पिएम</p>
+                <button class="btn btn-primary"><i class="fas fa-download"></i> এখনই ব্যাকআপ করুন</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <!-- System Info -->
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">সিস্টেম তথ্য</h5>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <strong>সংস্করণ:</strong>
+                  <p>1.0.0</p>
+                </div>
+                <div class="mb-3">
+                  <strong>PHP সংস্করণ:</strong>
+                  <p>8.1.0</p>
+                </div>
+                <div class="mb-3">
+                  <strong>ডাটাবেস:</strong>
+                  <p>MySQL 8.0</p>
+                </div>
+                <div class="mb-3">
+                  <strong>ডিস্ক স্থান:</strong>
+                  <p>15.2 GB / 100 GB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+</html>
